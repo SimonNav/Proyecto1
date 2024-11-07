@@ -4,7 +4,7 @@ source "https://rubygems.org"
 gem "rails", "~> 7.2.1", ">= 7.2.1.2"
 gem "devise"
 gem "webpacker"
-gem "bootstrap-sass", "~> 3.3.5"
+gem "bootstrap-sass", "~> 3.4.1"
 gem "sassc-rails"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
