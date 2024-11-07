@@ -1,0 +1,17 @@
+<h2>New Post</h2>
+<hr>
+<%= form_with model: @post, local: true do |form| %>
+  <div>
+    <%= form.label :description, "Descripción" %>
+    <%= form.text_area :description, rows: 5 %>
+  </div>
+  <br>
+  
+  <div>
+    <%= form.label :image, "Imagen" %>
+    <%= form.file_field :image %>
+  </div>
+  <br>
+  
+  <%= form.submit "Crear Post" %>
+<% end %>

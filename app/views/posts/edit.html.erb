@@ -1,0 +1,13 @@
+<h2>Editar Post</h2>
+<hr>
+<%= form_with model: @post, local: true do |form| %>
+  <%= form.label :description %>
+  <%= form.text_area :description %>
+  <br>
+
+  <%= form.label :image %>
+  <%= form.file_field :image %>
+  <br>
+
+  <%= form.submit "Actualizar Post" %>
+<% end %>

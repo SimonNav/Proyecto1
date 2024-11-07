@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Instagram</title>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_pack_tag "application", "data-turbolinks-track" => true %> <!-- Para Webpacker -->
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <!-- Barra de navegación -->
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><%= link_to "New Post", new_post_path %></li>
+          <% if current_user %>
+            <!-- Enlace de Logout envuelto en <li> -->
+            <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+          <% else %>
+            <li><%= link_to "Login", new_user_session_path %></li>
+            <li><%= link_to "Register", new_user_registration_path %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contenido de la página con notificaciones -->
+  <div class="container" style="padding-top: 70px;">
+    <div class="row">
+      <% flash.each do |type, message| %>
+        <div class="alert alert-<%= type == 'notice' ? 'success' : 'danger' %>">
+          <%= message %>
+        </div>
+      <% end %>
+
+      <div class="col-lg-12 text-center">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

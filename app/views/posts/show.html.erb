@@ -1,0 +1,7 @@
+<%= image_tag(@post.image, width: "300px", height: "200px") if @post.image.attached? %>
+<br>
+<%= @post.description %>
+<div class="link">
+  <%= link_to "Destroy", @post, method: :delete, data: { confirm: "Are you sure?" } %>
+  <%= link_to "Edit", edit_post_path(@post) %>
+</div>
